@@ -15,12 +15,9 @@ public class AutomationTest {
     public void requestDecision_checkStatusCode () {
 
         given().
-                param("yes").
-                param("no").
-                param("maybe").
-                when().
+        when().
                 get("https://yesno.wtf/api").
-                then().
+        then().
                 assertThat().
                 statusCode(200);
     }
@@ -29,12 +26,9 @@ public class AutomationTest {
     public void requestDecision_checkContentType() {
 
         given().
-                param("yes").
-                param("no").
-                param("maybe").
-                when().
+        when().
                 get("https://yesno.wtf/api").
-                then().
+        then().
                 assertThat().
                 contentType(ContentType.JSON);
 
@@ -44,13 +38,10 @@ public class AutomationTest {
     public void requestDecision_logRequest() {
 
         given().
-                param("yes").
-                param("no").
-                param("maybe").
-                log().all().
-                when().
+               log().all().
+        when().
                 get("https://yesno.wtf/api").
-                then().
+        then().
                 log().body();
 
     }
@@ -59,11 +50,11 @@ public class AutomationTest {
     public void requestDecision_checkAnswerInResponseBody_ExpectYes() {
 
         given().
-                when().
+        when().
                 get("https://yesno.wtf/api").
-                then().
+        then().
                 assertThat().
-                body("answer", equalToObject("yes"));
+                body("answer", equalTo("yes"));
 
     }
 
@@ -71,9 +62,9 @@ public class AutomationTest {
     public void requestDecision_checkAnswerInResponseBody_ExpectNo() {
 
         given().
-                when().
+        when().
                 get("https://yesno.wtf/api").
-                then().
+        then().
                 assertThat().
                 body("answer", equalTo("no"));
 
@@ -83,9 +74,9 @@ public class AutomationTest {
     public void requestDecision_checkAnswerInResponseBody_ExpectMaybe() {
 
         given().
-                when().
+        when().
                 get("https://yesno.wtf/api").
-                then().
+        then().
                 assertThat().
                 body("answer", equalTo("maybe"));
 
