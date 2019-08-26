@@ -51,7 +51,7 @@ public class AutomationTest {
 
         given().
         when().
-                get("https://yesno.wtf/api").
+                get("https://yesno.wtf/api?force=yes").
         then().
                 assertThat().
                 body("answer", equalTo("yes"));
@@ -63,7 +63,7 @@ public class AutomationTest {
 
         given().
         when().
-                get("https://yesno.wtf/api").
+                get("https://yesno.wtf/api?force=no").
         then().
                 assertThat().
                 body("answer", equalTo("no"));
@@ -75,7 +75,7 @@ public class AutomationTest {
 
         given().
         when().
-                get("https://yesno.wtf/api").
+                get("https://yesno.wtf/api?force=maybe").
         then().
                 assertThat().
                 body("answer", equalTo("maybe"));
