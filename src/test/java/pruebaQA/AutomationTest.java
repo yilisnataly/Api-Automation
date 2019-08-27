@@ -79,6 +79,7 @@ public class AutomationTest {
         then().
                 assertThat().
                 body("answer", equalTo("maybe"));
+                return maybe(10000);
 
     }
 }
